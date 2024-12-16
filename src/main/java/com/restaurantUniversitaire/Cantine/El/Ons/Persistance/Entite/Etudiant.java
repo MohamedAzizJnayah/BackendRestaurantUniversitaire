@@ -10,7 +10,7 @@ import java.util.List;
 public class Etudiant
 {
     @Id
-    private Long CIN;
+    private int CIN;
     private String nom;
     private String prenom;
     private String mail;
@@ -18,7 +18,32 @@ public class Etudiant
 @OneToMany
     private List<Reservation> reservations;
 
-    public Long getCIN() {
+    public void setCIN(int CIN) {
+        this.CIN = CIN;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setMotpasse(String motpasse) {
+        this.motpasse = motpasse;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public int
+    getCIN() {
         return CIN;
     }
 

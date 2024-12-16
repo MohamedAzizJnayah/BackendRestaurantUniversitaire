@@ -17,10 +17,12 @@ public class LoginService implements LoginInterface {
     @Autowired
     private AdminRepository adminRepository;
     @Override
-    public void saveEtudiant(Etudiant etudiant) {
-        etudiantRepository.save(etudiant);
+    public Etudiant saveEtudiant(Etudiant etudiant) {
+        return etudiantRepository.save(etudiant);
     }
-public Boolean ExistEtudiant(Long Cin) {
+
+
+    public Boolean ExistEtudiant(int Cin) {
     Optional<Etudiant> etudiantOptional = etudiantRepository.findById(Cin);
     if (etudiantOptional.isPresent()){
         return true;
@@ -28,7 +30,7 @@ public Boolean ExistEtudiant(Long Cin) {
     return false;
 }
     @Override
-    public Optional<Etudiant> etudiantLogin(Long Cin, String motpasse) {
+    public Optional<Etudiant> etudiantLogin(int Cin, String motpasse) {
         Optional<Etudiant> etudiantOptional = etudiantRepository.findById(Cin);
         if (etudiantOptional.isPresent() && etudiantOptional.get().getMotpasse().equals(motpasse)) {
             return etudiantOptional;

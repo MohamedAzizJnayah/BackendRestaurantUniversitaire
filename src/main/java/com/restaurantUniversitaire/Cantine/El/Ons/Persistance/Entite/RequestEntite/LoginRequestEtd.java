@@ -1,15 +1,15 @@
 package com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite.RequestEntite;
 
 public class LoginRequestEtd {
-    private Long cin;
+    private int cin;
     private String motpasse;
 
     // Getters et Setters
-    public Long getCin() {
+    public int getCin() {
         return cin;
     }
 
-    public void setCin(Long cin) {
+    public void setCin(int cin) {
         this.cin = cin;
     }
 

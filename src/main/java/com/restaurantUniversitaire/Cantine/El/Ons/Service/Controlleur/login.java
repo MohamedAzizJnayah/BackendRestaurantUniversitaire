@@ -18,6 +18,24 @@ import java.util.Optional;
 public class login {
     @Autowired
     LoginService loginService;
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    public ResponseEntity<?> register(@RequestBody Etudiant etudiant) {
+        // Affichage pour le débogage
+        System.out.println("Nom de l'étudiant: " + etudiant.getNom());
+        System.out.println("CIN de l'étudiant: " + etudiant.getCIN());
+
+        // Vérifier que CIN ne soit pas envoyé lors de la création
+
+
+        Etudiant savedEtudiant = loginService.saveEtudiant(etudiant);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedEtudiant);
+    }
+
+
+
+
+
+
     @PostMapping("/etudiant")
     public ResponseEntity<?> login(@RequestBody LoginRequestEtd loginRequestEtd) {
         Optional<Etudiant> etudiant = loginService.etudiantLogin(loginRequestEtd.getCin() , loginRequestEtd.getMotpasse());
@@ -31,11 +49,12 @@ public class login {
     public ResponseEntity<?> login(@RequestBody LoginRequestAdmin loginRequestAdmin) {
         Optional<Admin> admin = loginService.adminLogin(loginRequestAdmin.getemail(), loginRequestAdmin.getMotpasse());
         if (admin.isPresent()) {
-            return ResponseEntity.ok(admin.get()); // Renvoie l'étudiant si trouvé
+            return ResponseEntity.ok(admin.get()); // Renvoie l'Admin si trouvé
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Identifiants incorrects.");
         }
     }
+
 
 
 }
