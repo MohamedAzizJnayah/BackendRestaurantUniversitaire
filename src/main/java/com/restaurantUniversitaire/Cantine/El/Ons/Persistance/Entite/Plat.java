@@ -14,4 +14,25 @@ public class Plat {
     private String name;
     private String description;
     private float prix;
+    String image;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public String getImage() {
+        return image;
+    }
 }
