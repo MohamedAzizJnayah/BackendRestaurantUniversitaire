@@ -13,6 +13,14 @@ public class Paiement {
     private int id;
     private float montant;
     private String methode;
-    private String statut;
 
+    public Paiement(float montant, String method) {
+        this.montant = montant;
+        this.methode = methode;
+
+    }
+
+    public Paiement() {
+
+    }
 }

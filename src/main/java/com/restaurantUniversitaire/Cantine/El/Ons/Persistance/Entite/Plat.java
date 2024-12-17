@@ -17,6 +17,7 @@ public class Plat {
     String image;
     @ManyToOne
     private Menu menu;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "plat")
     public int getId() {
         return id;
     }

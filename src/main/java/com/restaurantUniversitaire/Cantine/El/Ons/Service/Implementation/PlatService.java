@@ -13,6 +13,8 @@ import java.util.List;
 public class PlatService {
    @Autowired
     private MenuRepository menuRepository;
+   @Autowired
+   private PlatRepository platRepository;
     public List<Plat> getPlatsByMenuId(int menuId) {
         Menu menu = menuRepository.findById(menuId);
         if (menu != null) {

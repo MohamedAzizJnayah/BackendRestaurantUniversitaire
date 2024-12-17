@@ -6,8 +6,12 @@ import jdk.jfr.Registered;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Registered
 public interface PlatRepository extends JpaRepository<Plat, Integer> {
-//    List<Plat> findByMenus_Id(int menuId);
-}
+
+        Optional<Plat> findById(Long id);  // Recherche du plat par ID
+    }
+
+

@@ -18,8 +18,19 @@ public class Reservation {
     private Etudiant etudiant;
     @OneToOne(cascade = CascadeType.ALL)
     private Paiement paiement;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Plat> plats;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Plat plat;
+
+    public Reservation(String date, String description, Etudiant etudiant, Paiement paiement, Plat plat) {
+        this.date = date;
+        this.description = description;
+        this.etudiant = etudiant;
+        this.paiement = paiement;
+        this.plat = plat;
+    }
+
+    public Reservation() {
+    }
 
     @Override
     public String toString() {
@@ -29,7 +40,7 @@ public class Reservation {
                 ", description='" + description + '\'' +
                 ", etudiant=" + etudiant +
                 ", paiement=" + paiement +
-                ", plats=" + plats +
+                ", plat=" + plat +
                 '}';
     }
 
@@ -73,11 +84,11 @@ public class Reservation {
         this.paiement = paiement;
     }
 
-    public List<Plat> getPlats() {
-        return plats;
+    public Plat getPlat() {
+        return plat;
     }
 
-    public void setPlats(List<Plat> plats) {
-        this.plats = plats;
+    public void setPlat(Plat plat) {
+        this.plat = plat;
     }
 }
