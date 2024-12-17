@@ -1,9 +1,9 @@
 package com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -15,7 +15,8 @@ public class Plat {
     private String description;
     private float prix;
     String image;
-
+    @ManyToOne
+    private Menu menu;
     public int getId() {
         return id;
     }
