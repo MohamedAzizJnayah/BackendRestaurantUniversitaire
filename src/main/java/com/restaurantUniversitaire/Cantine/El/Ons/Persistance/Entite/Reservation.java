@@ -11,13 +11,25 @@ import java.util.List;
 public class Reservation {
     @Id
     @GeneratedValue
-    private Long id;
-    private Date date;
+    private int id;
+    private String date;
     private String description;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Etudiant etudiant;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Paiement paiement;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Menu> menus;
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", date=" + date +
+                ", description='" + description + '\'' +
+                ", etudiant=" + etudiant +
+                ", paiement=" + paiement +
+                ", menus=" + menus +
+                '}';
+    }
 }

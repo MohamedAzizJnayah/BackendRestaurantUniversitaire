@@ -10,13 +10,13 @@ import java.util.List;
 public class Menu {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     private String name;
     private String description;
     @OneToOne
     private Categorie categorie;
-    @OneToMany
-    private List<Plat> plats;
+    @ManyToOne
+    private Plat plat;
 
 
 }

@@ -10,7 +10,7 @@ import lombok.Data;
 public class Paiement {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     private float montant;
     private String methode;
     private String statut;

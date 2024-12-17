@@ -10,6 +10,14 @@ import lombok.Data;
 public class Categorie {
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
     private String nom;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
 }

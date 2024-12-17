@@ -5,5 +5,5 @@ import jdk.jfr.Registered;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @Registered
-public interface PlatRepository extends JpaRepository<Plat, Long> {
+public interface PlatRepository extends JpaRepository<Plat, Integer> {
 }

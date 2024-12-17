@@ -48,6 +48,8 @@ public class login {
     @PostMapping("/admin")
     public ResponseEntity<?> login(@RequestBody LoginRequestAdmin loginRequestAdmin) {
         Optional<Admin> admin = loginService.adminLogin(loginRequestAdmin.getemail(), loginRequestAdmin.getMotpasse());
+        System.out.println(loginRequestAdmin.getemail());
+        System.out.println(loginRequestAdmin.getMotpasse());
         if (admin.isPresent()) {
             return ResponseEntity.ok(admin.get()); // Renvoie l'Admin si trouvé
         } else {
