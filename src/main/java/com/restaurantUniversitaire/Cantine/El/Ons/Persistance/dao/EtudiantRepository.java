@@ -12,4 +12,6 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
 
 
     Optional<Etudiant> findById(int cin);
+
+
 }
