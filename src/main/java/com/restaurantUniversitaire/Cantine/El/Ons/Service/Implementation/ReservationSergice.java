@@ -46,6 +46,17 @@ public class ReservationSergice implements ReservationInterface {
         List<Reservation> reservations = reservationRepository.findByEtudiant(etudiant.get());
         return reservations;
     }
+
+    public boolean deleteReservation(int reservationId) {
+        Optional<Reservation> reservation = reservationRepository.findById(reservationId);
+        if (reservation.isPresent()) {
+            reservationRepository.deleteById(reservationId);
+            return true;
+        }
+
+        return false; // Return false if reservation is not found
+    }
+
 }
 
 

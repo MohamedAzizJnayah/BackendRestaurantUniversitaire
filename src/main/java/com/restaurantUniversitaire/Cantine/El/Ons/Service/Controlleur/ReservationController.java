@@ -1,17 +1,15 @@
 package com.restaurantUniversitaire.Cantine.El.Ons.Service.Controlleur;
 
-import com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite.Etudiant;
+import com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite.RequestEntite.DeleteReservationRequest;
 import com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite.RequestEntite.LoginRequestEtd;
 import com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite.RequestEntite.ReservationRequest;
 import com.restaurantUniversitaire.Cantine.El.Ons.Persistance.Entite.Reservation;
-import com.restaurantUniversitaire.Cantine.El.Ons.Persistance.dao.ReservationRepository;
 import com.restaurantUniversitaire.Cantine.El.Ons.Service.Implementation.ReservationSergice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -44,4 +42,23 @@ public class ReservationController {
             return ResponseEntity.badRequest().body("Reservations could not be found");
         }
     }
+
+    //Delete Reservation By I'd Reservation
+    @DeleteMapping("/deleteReservation")
+    public ResponseEntity<String> deleteReservation(@RequestBody DeleteReservationRequest deleteReservationRequest) {
+        // Vérification si l'ID est valide
+        if (deleteReservationRequest.getId() <= 0) {
+            return ResponseEntity.badRequest().body("ID de réservation invalide.");
+        }
+
+        // Suppression de la réservation
+        boolean isDeleted = reservationSergice.deleteReservation(deleteReservationRequest.getId()); // Corrected typo 'reservationSergice' to 'reservationService'
+        if (isDeleted) {
+            return ResponseEntity.ok("Réservation supprimée avec succès");
+        } else {
+            return ResponseEntity.badRequest().body("Impossible de supprimer la réservation. ID non trouvé.");
+        }
+    }
+
+
 }

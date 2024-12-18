@@ -11,4 +11,7 @@ import java.util.List;
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
     // Recherche de toutes les réservations d'un étudiant
     List<Reservation> findByEtudiant(Etudiant etudiant);
+    // Suppression d'une réservation par ID
+    void deleteById(int id);
+    boolean existsById(int id);
 }

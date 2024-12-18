@@ -14,11 +14,11 @@ public class Reservation {
     private int id;
     private String date;
     private String description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Etudiant etudiant;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     private Paiement paiement;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Plat plat;
 
     public Reservation(String date, String description, Etudiant etudiant, Paiement paiement, Plat plat) {
