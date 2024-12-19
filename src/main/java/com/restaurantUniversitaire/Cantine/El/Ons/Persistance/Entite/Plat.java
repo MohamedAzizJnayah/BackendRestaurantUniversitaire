@@ -18,6 +18,7 @@ public class Plat {
     @ManyToOne
     private Menu menu;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "plat")
+    List<Reservation> reservations;
     public int getId() {
         return id;
     }
